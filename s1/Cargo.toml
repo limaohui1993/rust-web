@@ -1,0 +1,7 @@
+[workspace]
+members =[
+    "tcpserver",
+    "tcpclient",
+    "httpserver",
+    "http",
+]
