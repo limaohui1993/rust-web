@@ -5,6 +5,11 @@ use dotenv::dotenv;
 use std::env;
 use sqlx::postgres::PgPoolOptions;
 
+#[path="../db_access.rs"]
+mod db_access;
+
+#[path="../errors.rs"]
+mod errors;
 #[path="../handler.rs"]
 mod handlers;
 

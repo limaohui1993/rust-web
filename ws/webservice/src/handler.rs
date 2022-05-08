@@ -1,6 +1,7 @@
+use super::db_access::*;
 use super::state::AppState;
 use actix_web::{web,HttpResponse};
-
+use super::errors::MyError;
 
 pub async fn health_check_handler(app_state:web::Data<AppState>)->HttpResponse {
     let health_check_response=&app_state.health_check_response;
@@ -11,11 +12,11 @@ pub async fn health_check_handler(app_state:web::Data<AppState>)->HttpResponse {
 }
 
 use super::models::Course;
-use chrono::Utc;
+
 pub async fn new_course(
     new_course:web::Json<Course>, 
     app_state:web::Data<AppState>,
-)->HttpResponse {
+)->Result<HttpResponse,MyError> {
     // println!("Received new course");
     // let course_count=app_state
     //                     .courses
@@ -35,13 +36,14 @@ pub async fn new_course(
     // };
     // app_state.courses.lock().unwrap().push(new_course);
     // HttpResponse::Ok().json("Course added")
-    HttpResponse::Ok().json("Success")
-
+    post_new_course_db(&app_state.db,new_course.into())
+    .await
+    .map(|course| HttpResponse::Ok().json(course))
 }
 pub async fn get_courses_for_teacher(
     app_state: web::Data<AppState>,
-    params:web::Path<(usize,)>,
-)->HttpResponse{
+    params:web::Path<(usize,)>,//路径 ： xxxx/{teacher_id}
+)->Result<HttpResponse,MyError>{
     // let teacher_id:usize = params.0;
     // let filtered_courses=app_state.courses
     //                                 .lock()
@@ -55,14 +57,18 @@ pub async fn get_courses_for_teacher(
     // } else{
     //     HttpResponse::Ok().json("no course found for teacher".to_string())
     // }
-    HttpResponse::Ok().json("Success")
+    let teacher_id=i32::try_from(params.0).unwrap();
+    get_courses_for_teacher_db(&app_state.db,teacher_id)
+    .await
+    .map(|courses| HttpResponse::Ok().json(courses))
+    
 
 
 }
 pub async fn get_courses_detail(
     app_state: web::Data<AppState>,
     params:web::Path<(usize,usize)>
-)->HttpResponse {
+)->Result<HttpResponse,MyError> {
     // let (teacher_id,course_id) = params.0;
     // let selected_course=app_state.courses
     //                                 .lock()
@@ -76,8 +82,11 @@ pub async fn get_courses_detail(
     // }else{
     //     HttpResponse::Ok().json("course not found".to_string())
     // }
-    HttpResponse::Ok().json("Success")
-
+    let teacher_id=i32::try_from(params.0).unwrap();
+    let course_id=i32::try_from(params.1).unwrap();
+    get_courses_detail_db(&app_state.db,teacher_id,course_id)
+    .await
+    .map(|course| HttpResponse::Ok().json(course))
 }
 
 #[cfg(test)]
@@ -89,6 +98,7 @@ mod test{
     use sqlx::postgres::PgPoolOptions;
     use std::env;
 
+    #[ignore]
     #[actix_rt::test]
     async fn post_course_test() {
         dotenv().ok();
@@ -102,10 +112,10 @@ mod test{
          let course=web::Json(Course{
             teacher_id:1,
             name:"test course".into(),
-            id:None,
+            id:Some(7),
             time:None,
         });
-        let resp=new_course(course,app_state).await;
+        let resp=new_course(course,app_state).await.unwrap();
         assert_eq!(resp.status(),StatusCode::OK)
     }
     #[actix_rt::test]
@@ -119,7 +129,7 @@ mod test{
             db:db_pool,
         });
         let teacher_id:web::Path<(usize,)> = web::Path::from((1,));
-        let resp=get_courses_for_teacher(app_state,teacher_id).await;
+        let resp=get_courses_for_teacher(app_state,teacher_id).await.unwrap();
         assert_eq!(resp.status(),StatusCode::OK);
     }
     #[actix_rt::test]
@@ -133,7 +143,7 @@ mod test{
             db:db_pool,
         });
         let params:web::Path<(usize,usize)> = web::Path::from((1,1));
-        let resp=get_courses_detail(app_state,params).await;
+        let resp=get_courses_detail(app_state,params).await.unwrap();
         assert_eq!(resp.status(),StatusCode::OK);
     }
 }
