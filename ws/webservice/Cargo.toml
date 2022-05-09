@@ -18,8 +18,6 @@ sqlx={version = "0.5.10",default_features =false,features=[
     "macros",
     "chrono",
 ]}
-[[bin]]
-name="server1"
 
 [[bin]]
 name="teacher-service"
