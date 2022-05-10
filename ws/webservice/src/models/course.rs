@@ -50,39 +50,22 @@ pub struct CreateCourse{
 //     }
 // }
 
-// impl TryFrom<web::Json<CreateCourse>> for CreateCourse{
-//     type Error=MyError;
-//     fn try_from(course:web::Json<CreateCourse>)->Result<Self,Self::Error>{
-//         Ok(
-//             CreateCourse{
-//                 teacher_id:course.teacher_id,
-//                 name:course.name.clone(),
-//                 description:course.description.clone(),
-//                 format:course.format.clone(),
-//                 structure:course.structure.clone(),
-//                 duration:course.duration.clone(),
-//                 price:course.price,
-//                 language:course.language.clone(),
-//                 level:course.level.clone(),
-//             }
-//         )
-//     }
-// }
-impl TryFrom<web::Json<CreateCourse>> for CreateCourse {
-    type Error = MyError;
-
-    fn try_from(course: web::Json<CreateCourse>) -> Result<Self, Self::Error> {
-        Ok(CreateCourse {
-            teacher_id: course.teacher_id,
-            name: course.name.clone(),
-            description: course.description.clone(),
-            format: course.format.clone(),
-            structure: course.structure.clone(),
-            duration: course.duration.clone(),
-            price: course.price,
-            language: course.language.clone(),
-            level: course.level.clone(),
-        })
+impl TryFrom<web::Json<CreateCourse>> for CreateCourse{
+    type Error=MyError;
+    fn try_from(course:web::Json<CreateCourse>)->Result<Self,Self::Error>{
+        Ok(
+            CreateCourse{
+                teacher_id:course.teacher_id,
+                name:course.name.clone(),
+                description:course.description.clone(),
+                format:course.format.clone(),
+                structure:course.structure.clone(),
+                duration:course.duration.clone(),
+                price:course.price,
+                language:course.language.clone(),
+                level:course.level.clone(),
+            }
+        )
     }
 }
 

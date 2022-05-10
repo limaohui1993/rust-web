@@ -1,6 +1,5 @@
 use crate::errors::MyError;
-use crate::models::course::{Course,UpdateCourse};
-use chrono::NaiveDateTime;
+use crate::models::course::{Course,UpdateCourse,CreateCourse};
 use sqlx::postgres::PgPool;
 
 pub async fn get_courses_for_teacher_db
@@ -16,7 +15,7 @@ pub async fn get_courses_for_teacher_db
     Ok(rows)
 }
 
-pub async fn get_courses_detail_db
+pub async fn get_course_detail_db
 (pool:&PgPool,teacher_id:i32,course_id:i32)->Result<Course,MyError> {
     let row =sqlx::query_as!(
         Course,
@@ -36,7 +35,7 @@ pub async fn get_courses_detail_db
 }
 
 pub async fn post_new_course_db
-(pool:&PgPool,new_course:Course)->Result<Course,MyError> {
+(pool:&PgPool,new_course:CreateCourse)->Result<Course,MyError> {
     let row=sqlx::query_as!(
         Course,
         r#"insert into course (teacher_id, name,description,format,structure,
@@ -60,16 +59,7 @@ pub async fn post_new_course_db
 }
 
 pub async fn delete_course_db
-(pool:&PgPool,teacher_id:i32,id:i32)->Result<Course,MyError> {
-    // let course_row=sqlx::query!(
-    //     "delete from course where teacher_id=$1 and id=$2",
-    //     teacher_id,
-    //     id,
-    // ).execute(pool)
-    // .await?;
-    
-    // Ok(format!("Delete {:?} record", course_row))
-
+(pool:&PgPool,teacher_id:i32,id:i32)->Result<String,MyError> {
     let course_row = sqlx::query!(
         "delete from course where teacher_id=$1 and id=$2",
         teacher_id,

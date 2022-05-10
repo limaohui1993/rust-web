@@ -9,7 +9,7 @@ pub async fn post_new_course(
     new_course:web::Json<CreateCourse>, 
     app_state:web::Data<AppState>,
 )->Result<HttpResponse,MyError> {
-    post_new_course_db(&app_state.db,new_course.try_into()?)
+    post_new_course_db(&app_state.db,new_course.try_into()? )
     .await
     .map(|course| HttpResponse::Ok().json(course))
 }
@@ -26,14 +26,14 @@ pub async fn get_courses_for_teacher(
 
 
 }
-pub async fn get_courses_detail(
+pub async fn get_course_detail(
     app_state: web::Data<AppState>,
     params:web::Path<(i32,i32)>
 )->Result<HttpResponse,MyError> {
     // let teacher_id=i32::try_from(params.0).unwrap();
     // let course_id=i32::try_from(params.1).unwrap();
     let (teacher_id,course_id)=params.into_inner();
-    get_courses_detail_db(&app_state.db,teacher_id,course_id)
+    get_course_detail_db(&app_state.db,teacher_id,course_id)
     .await
     .map(|course| HttpResponse::Ok().json(course))
 }
@@ -68,7 +68,7 @@ mod test{
     use actix_web::ResponseError;
 
 
-    // #[ignore]
+    #[ignore]
     #[actix_rt::test]
     async fn post_course_test() {
         dotenv().ok();
@@ -94,6 +94,7 @@ mod test{
         let resp=post_new_course(course,app_state).await.unwrap();
         assert_eq!(resp.status(),StatusCode::OK)
     }
+    
     #[actix_rt::test]
     async fn get_all_courses_success() {
         dotenv().ok();
@@ -108,6 +109,7 @@ mod test{
         let resp=get_courses_for_teacher(app_state,teacher_id).await.unwrap();
         assert_eq!(resp.status(),StatusCode::OK);
     }
+    
     #[actix_rt::test]
     async fn get_one_courses_success() {
         dotenv().ok();
@@ -119,10 +121,10 @@ mod test{
             db:db_pool,
         });
         let params:web::Path<(i32,i32)> = web::Path::from((1,100));
-        let resp=get_courses_detail(app_state,params).await;
+        let resp=get_course_detail(app_state,params).await;
         match resp{
             Ok(_) => println!("Something wrong..."),
-            Err(err)=>assert_eq!(err.status_code(),StatusCode::NotFound )
+            Err(err)=>assert_eq!(err.status_code(),StatusCode::NOT_FOUND )
         }
         // assert_eq!(resp.status(),StatusCode::OK);
     }
@@ -147,7 +149,7 @@ mod test{
             language:Some("Chinese".into()),
             structure:None,
         };
-        let params:web::Path<(i32,i32)>=web::Path::from((1,2));
+        let params:web::Path<(i32,i32)>=web::Path::from((1 ,2));
         let update_param=web::Json(update_course);
         let resp=update_course_details(app_state,update_param,params)
                                                     .await
@@ -155,7 +157,7 @@ mod test{
         assert_eq!(resp.status(),StatusCode::OK);
     }
 
-    // #[ignore]
+    #[ignore]
     #[actix_rt::test]
     async fn delete_course_success(){
         dotenv().ok() ;
@@ -170,6 +172,7 @@ mod test{
         let resp=delete_course(app_state,params).await.unwrap();
         assert_eq!(resp.status(),StatusCode::OK)
     }
+    
     #[actix_rt::test]
     async fn delete_course_failure(){
         dotenv().ok() ;
