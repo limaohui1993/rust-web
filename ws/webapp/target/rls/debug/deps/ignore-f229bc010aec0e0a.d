@@ -1,0 +1,12 @@
+/Users/limaohui/rust/rust-web/ws/webapp/target/rls/debug/deps/ignore-f229bc010aec0e0a.rmeta: /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/lib.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/default_types.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/dir.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/gitignore.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/overrides.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/pathutil.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/types.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/walk.rs
+
+/Users/limaohui/rust/rust-web/ws/webapp/target/rls/debug/deps/ignore-f229bc010aec0e0a.d: /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/lib.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/default_types.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/dir.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/gitignore.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/overrides.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/pathutil.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/types.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/walk.rs
+
+/Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/lib.rs:
+/Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/default_types.rs:
+/Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/dir.rs:
+/Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/gitignore.rs:
+/Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/overrides.rs:
+/Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/pathutil.rs:
+/Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/types.rs:
+/Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/ignore-0.4.18/src/walk.rs:

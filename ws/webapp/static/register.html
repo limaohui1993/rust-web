@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/static/css/register.css" />
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Teacher registeration</h2>
+    <div>
+        <form action="/register-post" method="POST">
+            <label for="name">Teacher name</label><br>
+            <input type="text" name="name" value="{{current_name}}"><br>
+            <label for="name">Teacher imageurl</label><br>
+            <input type="text" name="imageurl" value="{{current_imageurl}}"><br>
+            <label for="name">Teacher profile</label><br>
+            <input type="text" name="profile" value="{{current_profile}}"><br>
+            <label for="error">
+                <p>{{error}}</p>
+            </label><br>
+            <button type="submit">R egister</button>
+        </form>
+    </div>
+</body>
+</html>
