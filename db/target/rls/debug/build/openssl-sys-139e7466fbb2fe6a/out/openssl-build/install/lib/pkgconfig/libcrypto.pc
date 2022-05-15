@@ -1,0 +1,12 @@
+prefix=/Users/limaohui/rust/rust-web/db/target/rls/debug/build/openssl-sys-139e7466fbb2fe6a/out/openssl-build/install
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+enginesdir=${libdir}/engines-1.1
+
+Name: OpenSSL-libcrypto
+Description: OpenSSL cryptography library
+Version: 1.1.1n
+Libs: -L${libdir} -lcrypto
+Libs.private:  
+Cflags: -I${includedir}

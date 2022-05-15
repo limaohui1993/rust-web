@@ -9,6 +9,7 @@ pub async fn post_new_course(
     new_course:web::Json<CreateCourse>, 
     app_state:web::Data<AppState>,
 )->Result<HttpResponse,MyError> {
+    println!("{:?}",new_course);
     post_new_course_db(&app_state.db,new_course.try_into()? )
     .await
     .map(|course| HttpResponse::Ok().json(course))

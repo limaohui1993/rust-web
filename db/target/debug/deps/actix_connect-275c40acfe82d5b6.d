@@ -1,0 +1,12 @@
+/Users/limaohui/rust/rust-web/db/target/debug/deps/actix_connect-275c40acfe82d5b6.rmeta: /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/lib.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/connect.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/connector.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/error.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/resolve.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/service.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/ssl/mod.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/uri.rs
+
+/Users/limaohui/rust/rust-web/db/target/debug/deps/actix_connect-275c40acfe82d5b6.d: /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/lib.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/connect.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/connector.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/error.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/resolve.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/service.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/ssl/mod.rs /Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/uri.rs
+
+/Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/lib.rs:
+/Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/connect.rs:
+/Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/connector.rs:
+/Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/error.rs:
+/Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/resolve.rs:
+/Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/service.rs:
+/Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/ssl/mod.rs:
+/Users/limaohui/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/uri.rs:
